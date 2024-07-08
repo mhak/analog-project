@@ -27,8 +27,8 @@ export const Config = {
   api_host:'${process.env.CONTENTSTACK_API_HOST}',
   app_host:'${process.env.CONTENTSTACK_APP_HOST}',
   live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW || true},
-  test: 'test',
-  meng: 'meng',
+  test: ${process.env.test || true},
+  meng: '${process.env.meng || true}',
 };`;
 
 // write the content to the respective file if env exists
