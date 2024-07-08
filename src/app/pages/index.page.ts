@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
-//import { environment } from '../../environments/environment';
+import { Config } from '../../environments/environment';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home1',
   standalone: true,
   templateUrl: './index.page.html',
   styles: [
@@ -22,9 +22,11 @@ import { Component, signal } from '@angular/core';
 
 export default class HomeComponent {
   count = signal(0);
-  display = process.env["meng"];
+  
+  display = Config.test;
 
   increment() {
+    console.log('import', import.meta.env);
     this.count.update((count) => count + 1);
   }
 }
