@@ -27,7 +27,7 @@ export const Config = {
   api_host:'${process.env.CONTENTSTACK_API_HOST}',
   app_host:'${process.env.CONTENTSTACK_APP_HOST}',
   live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW || true},
-  test: ${process.env.test || true},
+  test: '${process.env.test || true}',
   meng: '${process.env.meng || true}',
 };`;
 
