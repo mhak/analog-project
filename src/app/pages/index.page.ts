@@ -1,9 +1,13 @@
 import { Component, signal, inject } from '@angular/core';
 import { config } from '../../environments/environment';
 import { ContentstackQueryService } from '../../modules/contentstack/cs.query.service';
-import { AsyncPipe } from '@angular/common';
+//import { AsyncPipe } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { injectLoad } from '@analogjs/router';
+
+import { load } from './index.server'; // not included in client build
 @Component({
-  selector: 'app-home1',
+  selector: 'app-home',
   standalone: true,
   templateUrl: './index.page.html',
   styles: [
@@ -19,11 +23,13 @@ import { AsyncPipe } from '@angular/common';
       }
     `,
   ],
-  imports: [AsyncPipe],
+  //imports: [AsyncPipe],
 })
 
 export default class HomeComponent {
-  private cs = inject(ContentstackQueryService);
+  //private cs = inject(ContentstackQueryService);
+  serverData = toSignal(injectLoad<typeof load>(), { requireSync: true });
+  private csContent = {};
 
   count = signal(0);
   display = config.test;
@@ -35,12 +41,14 @@ export default class HomeComponent {
     this.count.update((count) => count + 1);
   }
 
-  // async getEntry() {
-  //   const response = await this.cs.getEntryWithQuery('page', { key: 'url', value: '/' });
-  //   // console.log('entry', response);
-  // }
+  getEntry() {
+    this.cs.getEntryWithQuery('page', { key: 'url', value: '/' }).then((response) => {
+      this.csContent = response[0][0];
+      console.log('this.csContent', this.csContent);
 
-  init() {
-    
+    })
+  }
+
+  ngOnInit() {
   }
 }

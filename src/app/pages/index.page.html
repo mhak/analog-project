@@ -1,19 +1,23 @@
 <div>
-    <a href="https://analogjs.org/" target="_blank">
-      <img alt="Analog Logo" class="logo analog" src="/analog.svg" />
-    </a>
-  </div>
+  <a href="https://analogjs.org/" target="_blank">
+    <img alt="Analog Logo" class="logo analog" src="/analog.svg" />
+  </a>
+</div>
 
-  <h1>{{display}}</h1>
-  <h2>Analog</h2>
+<h1>{{display}}</h1>
+<h2>Analog</h2>
 
-  <h3>The fullstack meta-framework for Angular!</h3>
+<h3>Content from contentstack should appear here:</h3>
+<div>
+  <section>Content begin==========</section>
+  <section [innerHtml]="serverData()?.cstk?.content"></section>
+  <section>============Content end</section>
+</div>
+<div class="card">
+  <button type="button" (click)="increment()">Count {{ count() }}</button>
+</div>
 
-  <div class="card">
-    <button type="button" (click)="increment()">Count {{ count() }}</button>
-  </div>
-
-  <p class="read-the-docs">
-    For guides on how to customize this project, visit the
-    <a href="https://analogjs.org" target="_blank">Analog documentation</a>
-  </p>
+<p class="read-the-docs">
+  For guides on how to customize this project, visit the
+  <a href="https://analogjs.org" target="_blank">Analog documentation</a>
+</p>

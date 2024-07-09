@@ -10,9 +10,9 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     mainFields: ['module'],
-    alias: {
-      'node-fetch': 'isomorphic-fetch',
-    },
+    // alias: {
+    //   'node-fetch': 'isomorphic-fetch',
+    // },
   },
   plugins: [analog()],
   test: {
@@ -21,9 +21,9 @@ export default defineConfig(({ mode }) => ({
     setupFiles: ['src/test-setup.ts'],
     include: ['**/*.spec.ts'],
     reporters: ['default'],
-    deps: {
-      interopDefault: true,
-    },
+    // deps: {
+    //   interopDefault: true,
+    // },
   },
   define: {
     'import.meta.vitest': mode !== 'production',

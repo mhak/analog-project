@@ -17,7 +17,7 @@ export class ContentstackService {
   private customHostUrl: string = "";
   
   constructor() {
-    //this.initializeStack();
+    this.initializeStack();
   }
 
   private initializeStack(): void {

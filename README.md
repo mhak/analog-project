@@ -8,7 +8,9 @@ Run `npm install` to install the application dependencies.
 
 ## Development
 
-Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files.
+Run `npm run config`` to generate `/environments/environments.ts`
+
+Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files. This also runs `npm run config` before starting the server.
 
 ## Build
 
