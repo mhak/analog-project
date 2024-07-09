@@ -14,6 +14,6 @@ export const Config = {
   api_host:'undefined',
   app_host:'undefined',
   live_preview:true,
-  test: 'test',
-  meng: 'meng',
+  test: '',
+  meng: '',
 };
