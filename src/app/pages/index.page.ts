@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
-import { Config } from '../../environments/environment';
-
+import { Component, signal, inject } from '@angular/core';
+import { config } from '../../environments/environment';
+import { ContentstackQueryService } from '../../modules/contentstack/cs.query.service';
+import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-home1',
   standalone: true,
@@ -18,15 +19,28 @@ import { Config } from '../../environments/environment';
       }
     `,
   ],
+  imports: [AsyncPipe],
 })
 
 export default class HomeComponent {
-  count = signal(0);
-  
-  display = Config.test;
+  private cs = inject(ContentstackQueryService);
 
+  count = signal(0);
+  display = config.test;
+  constructor() {
+    //this.getEntry();
+  }
+  
   increment() {
-    console.log('import', import.meta.env);
     this.count.update((count) => count + 1);
+  }
+
+  // async getEntry() {
+  //   const response = await this.cs.getEntryWithQuery('page', { key: 'url', value: '/' });
+  //   // console.log('entry', response);
+  // }
+
+  init() {
+    
   }
 }
