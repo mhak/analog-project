@@ -1,7 +1,7 @@
 import { config } from '../../environments/environment'
-import {createContentstackClient} from './contentstackservice'
+import {createContentstackClient} from './contentstack.service'
 
-export function createBlogClient() {
+export function createClient() {
   return {
     api: createContentstackClient({
       key: config.api_key,
@@ -10,7 +10,7 @@ export function createBlogClient() {
       region: 'US',
       branch: config.branch,
       preview: {
-        enable: false,
+        enable: config.live_preview,
         host: config.api_host,
         token: config.preview_token,
       },

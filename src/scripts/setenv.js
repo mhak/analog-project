@@ -26,7 +26,7 @@ export const config = {
   preview_host:'${process.env.CONTENTSTACK_PREVIEW_HOST}',
   api_host:'${process.env.CONTENTSTACK_API_HOST}',
   app_host:'${process.env.CONTENTSTACK_APP_HOST}',
-  live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW || true},
+  live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW},
   test: '${process.env.test}',
 };`;
 

@@ -1,5 +1,5 @@
 import { PageServerLoad } from '@analogjs/router';
-import { createBlogClient } from '../../modules/contentstack/contentstackclient'
+import { createClient } from '../../lib/contentstack/contentstack.client'
 
 export const load = async ({
   params, // params/queryParams from the request
@@ -8,12 +8,15 @@ export const load = async ({
   fetch, // internal fetch for direct API calls,
   event, // full request event
 }: PageServerLoad) => {
-    var client = createBlogClient();
-    const response = await client.api.find<any>('page', null, (query) => {
-        return query.where('url', '/').toJSON()
-      })
 
-console.log('response', response[0]);
+  const client = createClient();
+
+  console.log('client', client.api);
+  const response = await client.api.find<any>('page', null, (query) => {
+    return query.where('url', '/').toJSON()
+  })
+
+  console.log('response', response[0]);
     
   return {
     cstk: response[0],
