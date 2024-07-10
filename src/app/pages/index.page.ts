@@ -3,8 +3,8 @@ import { config } from '../../environments/environment';
 //import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { injectLoad } from '@analogjs/router';
-
 import { load } from './index.server'; // not included in client build
+import ContentstackLivePreview from '@contentstack/live-preview-utils';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -31,11 +31,28 @@ export default class HomeComponent {
   count = signal(0);
   display = config.test;
   constructor() {
-
+    
   }
   
   increment() {
     this.count.update((count) => count + 1);
+  }
+
+  ngonInit() {
+    // this should be moved to layout / global
+    if (window) {
+      ContentstackLivePreview.init({
+        ssr: true,
+        enable: true,
+        clientUrlParams: {
+          host: 'api.contentstack.io',
+        },
+        stackDetails: {
+          apiKey: 'blta8d6cddc9b8b91ff',
+          environment: 'uat'
+        },
+      });
+    }
   }
 
 }

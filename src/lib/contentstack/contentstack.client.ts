@@ -11,7 +11,7 @@ export function createClient() {
       branch: config.branch,
       preview: {
         enable: config.live_preview,
-        host: config.api_host,
+        host: 'rest-preview.contentstack.com',
         token: config.preview_token,
       },
     }),
