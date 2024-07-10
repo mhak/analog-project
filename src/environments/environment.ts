@@ -17,5 +17,5 @@ export const config = {
   app_host:'app.contentstack.com',
   live_preview:true,
   test: 'local',
-  cache_control:false,
+  disable_header_cache:true,
 };

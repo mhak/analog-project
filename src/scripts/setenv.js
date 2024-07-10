@@ -30,7 +30,7 @@ export const config = {
   app_host:'${process.env.CONTENTSTACK_APP_HOST}',
   live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW},
   test: '${process.env.test}',
-  cache_control:${process.env.CACHE_CONTROL},
+  disable_header_cache:${process.env.DISABLE_HEADER_CACHE},
 };`;
 
 // write the content to the respective file if env exists
