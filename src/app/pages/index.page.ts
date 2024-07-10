@@ -39,20 +39,20 @@ export default class HomeComponent {
   }
 
   ngonInit() {
-    // this should be moved to layout / global
-    if (window) {
-      ContentstackLivePreview.init({
-        ssr: true,
-        enable: true,
-        clientUrlParams: {
-          host: 'api.contentstack.io',
-        },
-        stackDetails: {
-          apiKey: 'blta8d6cddc9b8b91ff',
-          environment: 'uat'
-        },
-      });
-    }
+    // // this should be moved to layout / global
+    // if (window) {
+    //   ContentstackLivePreview.init({
+    //     ssr: true,
+    //     enable: true,
+    //     clientUrlParams: {
+    //       host: 'api.contentstack.io',
+    //     },
+    //     stackDetails: {
+    //       apiKey: 'blta8d6cddc9b8b91ff',
+    //       environment: 'uat'
+    //     },
+    //   });
+    // }
   }
 
 }
