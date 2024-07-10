@@ -1,10 +1,10 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { config } from '../../environments/environment';
 //import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { injectLoad } from '@analogjs/router';
 import { load } from './index.server'; // not included in client build
-import ContentstackLivePreview from '@contentstack/live-preview-utils';
+import { ContentstackPreviewService } from '../../lib/contentstack/contentstack.preview.service'
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -23,36 +23,34 @@ import ContentstackLivePreview from '@contentstack/live-preview-utils';
     `,
   ],
   //imports: [AsyncPipe],
+  providers: [ContentstackPreviewService],
 })
 
-export default class HomeComponent {
+export default class HomeComponent implements OnInit {
+  private contentstackPreviewService = inject(ContentstackPreviewService);
+  
   serverData = toSignal(injectLoad<typeof load>(), { requireSync: true });
 
   count = signal(0);
   display = config.test;
+
   constructor() {
-    
   }
   
   increment() {
     this.count.update((count) => count + 1);
   }
 
-  ngonInit() {
-    // // this should be moved to layout / global
-    // if (window) {
-    //   ContentstackLivePreview.init({
-    //     ssr: true,
-    //     enable: true,
-    //     clientUrlParams: {
-    //       host: 'api.contentstack.io',
-    //     },
-    //     stackDetails: {
-    //       apiKey: 'blta8d6cddc9b8b91ff',
-    //       environment: 'uat'
-    //     },
-    //   });
-    // }
+  ngOnInit() {
+    // todo: move to layout / global
+    this.contentstackPreviewService.initLivePreview();
+    //console.log('editTag', this.serverData()?.cstk?.$?.content);
   }
 
+  // getAttributeObject<T extends Record<string, string>>(obj: T): any {
+  //   return Object.entries(obj).reduce((acc, [key, value]) => {
+  //     (acc as any)[`attr.${key}`] = value;
+  //     return acc;
+  //   }, {});
+  // }
 }

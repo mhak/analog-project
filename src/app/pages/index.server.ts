@@ -19,7 +19,7 @@ export const load = async ({
     return query.where('url', '/').toJSON()
   })
   
-  console.log('response', response);
+  console.log('response', response[0]);
 
   return {
     cstk: response[0],

@@ -39,13 +39,11 @@ export class Contentstack {
     try {
       this.setLivePreviewQuery(preview)
 
-      console.log('stack', this.stack);
       const stack = this.stack.ContentType(type).Query()
       const query = builder(stack)
       const items = await query.find()
 
       this.setEditableTags(type, preview, items)
-      console.log('items', items);
 
       return items.flat()
     } catch (error) {
@@ -57,8 +55,13 @@ export class Contentstack {
     }
   }
 
+  // sample query strings
+  // query {
+  //   live_preview: '0294eb0e6f954d76bb9229132882aac9',
+  //   content_type_uid: 'page',
+  //   entry_uid: 'blt2fbaef3144631a4b'
+  // }
   private setLivePreviewQuery(preview: LivePreviewQuery | null | undefined) {
-    console.log('preview', preview);
     if (!this.options.preview.enable) return
     if (!preview?.live_preview || !preview?.content_type_uid) return
 
