@@ -12,6 +12,8 @@ const stackConfig = {
   region: process.env.CONTENTSTACK_REGION || 'us',
 };
 const environmentFileContent = `
+// THIS FILE IS GENERATED FROM setenv.js
+
 export const environment = {
   production: true
 };
