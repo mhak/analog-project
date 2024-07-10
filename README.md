@@ -1,28 +1,13 @@
-# Analog App
+## Getting Started
+1. Copy `.env.example` to `.env` and update the values
+2. Run `npm install`
+3. Run `npm start` to start the server
+4. Navigate to `http://localhost:5173/`
 
-This project was generated with [Analog](https://analogjs.org), the fullstack meta-framework for Angular.
+## Troubleshooting
+- If you are having trouble running the server, try running `npm run config` to generate the `/environments/environments.ts` file
 
-## Setup
 
-Run `npm install` to install the application dependencies.
-
-## Development
-
-Run `npm run config`` to generate `/environments/environments.ts`
-
-Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files. This also runs `npm run config` before starting the server.
-
-## Build
-
-Run `npm run build` to build the client/server project. The client build artifacts are located in the `dist/analog/public` directory. The server for the API build artifacts are located in the `dist/analog/server` directory.
-
-## Test
-
-Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
-
-## Community
-
-- Visit and Star the [GitHub Repo](https://github.com/analogjs/analog)
-- Join the [Discord](https://chat.analogjs.org)
-- Follow us on [Twitter](https://twitter.com/analogjs)
-- Become a [Sponsor](https://github.com/sponsors/brandonroberts)
+## Links
+- [AnalogJS](https://analogjs.org)
+- [Server-Side Data Fetching](https://analogjs.org/docs/features/data-fetching/server-side-data-fetching)
