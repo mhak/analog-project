@@ -13,6 +13,6 @@ export const config = {
   preview_host:'',
   api_host:'api.contentstack.io',
   app_host:'app.contentstack.com',
-  live_preview:true,
+  live_preview:false,
   test: 'local',
 };
