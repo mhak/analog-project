@@ -1,5 +1,6 @@
 import { PageServerLoad } from '@analogjs/router';
 import { createClient } from '../../lib/contentstack/contentstack.client'
+import { getQuery } from 'h3'
 
 export const load = async ({
   params, // params/queryParams from the request
@@ -10,13 +11,11 @@ export const load = async ({
 }: PageServerLoad) => {
 
   const client = createClient();
+  const query:any = getQuery(event);
 
-  console.log('client', client.api);
-  const response = await client.api.find<any>('page', null, (query) => {
+  const response = await client.api.find<any>('page', query, (query) => {
     return query.where('url', '/').toJSON()
   })
-
-  console.log('response', response[0]);
     
   return {
     cstk: response[0],
