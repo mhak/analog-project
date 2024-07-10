@@ -13,6 +13,8 @@ export const load = async ({
   const client = createClient();
   const query:any = getQuery(event);
 
+  console.log('query', query);
+
   const response = await client.api.find<any>('page', query, (query) => {
     return query.where('url', '/').toJSON()
   })
