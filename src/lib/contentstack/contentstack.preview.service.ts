@@ -3,7 +3,6 @@ import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { config } from '../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +14,7 @@ export class ContentstackPreviewService {
   }
 
   async initLivePreview() {
-    if (this.isBrowser) {
+    if (this.isBrowser && config.live_preview) {
       try {
         const ContentstackLivePreview = await import('@contentstack/live-preview-utils');
         ContentstackLivePreview.default.init({
