@@ -4,7 +4,9 @@
 <h3>Content from contentstack should appear here:</h3>
 <div>
   <section>Content begin==========</section>
-  <section [innerHtml]="serverData()?.cstk?.content"></section>
+  <!-- todo: add attr dynamically from serverData()?.cstk?.$?.content -->
+  <section [innerHtml]="serverData()?.cstk?.content" data-cslp="page.blt2fbaef3144631a4b.en-us.content">
+  </section>
   <section>============Content end</section>
 </div>
 <div class="card">

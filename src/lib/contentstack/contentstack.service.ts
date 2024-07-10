@@ -55,6 +55,12 @@ export class Contentstack {
     }
   }
 
+  // sample query strings
+  // query {
+  //   live_preview: '0294eb0e6f954d76bb9229132882aac9',
+  //   content_type_uid: 'page',
+  //   entry_uid: 'blt2fbaef3144631a4b'
+  // }
   private setLivePreviewQuery(preview: LivePreviewQuery | null | undefined) {
     if (!this.options.preview.enable) return
     if (!preview?.live_preview || !preview?.content_type_uid) return
@@ -79,7 +85,7 @@ export class Contentstack {
       live_preview: {
         enable: this.options.preview.enable,
         host: this.options.preview.host,
-        management_token: this.options.preview.token,
+        preview_token: this.options.preview.token,
       },
     })
   }

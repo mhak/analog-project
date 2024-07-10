@@ -18,7 +18,9 @@ export const load = async ({
   const response = await client.api.find<any>('page', query, (query) => {
     return query.where('url', '/').toJSON()
   })
-    
+  
+  console.log('response', response[0]);
+
   return {
     cstk: response[0],
     loaded: true,
