@@ -32,4 +32,9 @@ export default defineConfig(({ mode }) => ({
     //global: {},
     'process.env': {}
   },
+  nitro: {
+    serverMiddleware: [
+      '~/src/server/middleware/no-cache.ts'
+    ]
+  }
 }));
