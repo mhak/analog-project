@@ -5,6 +5,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { injectLoad } from '@analogjs/router';
 import { load } from './index.server'; // not included in client build
 import { ContentstackPreviewService } from '../../lib/contentstack/contentstack.preview.service'
+import { DynamicAttrDirective } from '../../directives/dynamic-attr.directive';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -22,7 +24,7 @@ import { ContentstackPreviewService } from '../../lib/contentstack/contentstack.
       }
     `,
   ],
-  //imports: [AsyncPipe],
+  imports: [DynamicAttrDirective],
   providers: [ContentstackPreviewService],
 })
 
@@ -44,13 +46,5 @@ export default class HomeComponent implements OnInit {
   ngOnInit() {
     // todo: move to layout / global
     this.contentstackPreviewService.initLivePreview();
-    //console.log('editTag', this.serverData()?.cstk?.$?.content);
   }
-
-  // getAttributeObject<T extends Record<string, string>>(obj: T): any {
-  //   return Object.entries(obj).reduce((acc, [key, value]) => {
-  //     (acc as any)[`attr.${key}`] = value;
-  //     return acc;
-  //   }, {});
-  // }
 }

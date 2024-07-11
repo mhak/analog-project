@@ -5,7 +5,7 @@
 <div>
   <section>Content begin==========</section>
   <!-- todo: add attr dynamically from serverData()?.cstk?.$?.content -->
-  <section [innerHtml]="serverData()?.cstk?.content" data-cslp="page.blt2fbaef3144631a4b.en-us.content">
+  <section [innerHtml]="serverData()?.cstk?.content" [dynamicAttr]="serverData()?.cstk?.$?.content">
   </section>
   <section>============Content end</section>
 </div>
