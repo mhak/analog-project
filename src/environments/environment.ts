@@ -18,4 +18,6 @@ export const config = {
   live_preview:true,
   test: 'local',
   disable_header_cache:true,
+  public_base_url: 'http://localhost:5173',
+  graphql_url: 'https://graphql.contentstack.com/stacks/',
 };

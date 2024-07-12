@@ -10,9 +10,6 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     mainFields: ['module'],
-    // alias: {
-    //   'node-fetch': 'isomorphic-fetch',
-    // },
   },
   plugins: [analog()],
   test: {

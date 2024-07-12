@@ -31,6 +31,8 @@ export const config = {
   live_preview:${process.env.CONTENTSTACK_LIVE_PREVIEW},
   test: '${process.env.test}',
   disable_header_cache:${process.env.DISABLE_HEADER_CACHE},
+  public_base_url: '${process.env.VITE_ANALOG_PUBLIC_BASE_URL}',
+  graphql_url: '${process.env.CONTENTSTACK_GRAPHQL_URL}',
 };`;
 
 // write the content to the respective file if env exists

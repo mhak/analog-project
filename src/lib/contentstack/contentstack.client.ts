@@ -1,8 +1,9 @@
 import { config } from '../../environments/environment'
 import {createContentstackClient} from './contentstack.service'
-
+import { createApolloClient } from '../apollo/apollo'
+import { createURL } from '../http'
 export function createClient() {
-  return {
+    return {
     api: createContentstackClient({
       key: config.api_key,
       token: config.delivery_token,
@@ -13,6 +14,18 @@ export function createClient() {
         enable: config.live_preview,
         host: 'rest-preview.contentstack.com',
         token: config.preview_token,
+      },
+    }),
+    gql: createApolloClient({
+      url: createURL(config.api_key, {
+        origin: config.graphql_url,
+        search: {
+          environment: config.environment,
+        },
+      }),
+      headers: {
+        [`branch`]: config.branch,
+        [`access_token`]: config.delivery_token,
       },
     }),
   }
