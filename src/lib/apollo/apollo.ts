@@ -1,7 +1,7 @@
 import type { ApolloCache, NormalizedCacheObject } from '@apollo/client'
 
 import { ApolloClient, InMemoryCache,  } from '@apollo/client/core/core.cjs'
-import { ApolloLink, concat } from '@apollo/client/link/core'
+import { ApolloLink, concat } from '@apollo/client/link/core/core.cjs'
 import { HttpLink } from "@apollo/client/link/http/http.cjs";
 
 
